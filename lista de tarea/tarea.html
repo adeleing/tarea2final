@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/69d8162c1f.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Lista de tarea</title>
+    <link rel="stylesheet" href="tarea.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Lista de tarea</h1>
+      <nav class="nav">
+        <svg
+          class="open-menu"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+          />
+        </svg>
+
+        <ul class="nav-list">
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Contacto</a></li>
+          <li><a href="#">Sobre mi</a></li>
+          <li><a href="#">Ver tareas</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="container">
+      <div class="hijo">
+        <div class="perfil">
+          <div id="fecha">15 de Agosto</div>
+          <h1>Hola, empezamos</h1>
+          <span>Vamos a cumplir tus metas del dia de hoy</span>
+        </div>
+        <div class="agregar-tareas">
+          <input
+            class="icon-agregar"
+            type="text"
+            id="input"
+            placeholder="agregar tareas"
+          />
+          <i class="fa-regular fa-square-plus"></i>
+        </div>
+        <div class="seccion-tareas">
+          <h3>Estas son tus tareas pendientes</h3>
+          <ul id="list" class="barra">
+            <li>
+              <i id="delete" class="fa-solid fa-trash"></i>
+              <p class="text line-through">Barrer el cuarto</p>
+              <i id="check" class="fa-regular fa-circle-check"></i>
+            </li>
+            <li>
+              <i id="delete" class="fa-solid fa-trash"></i>
+              <p class="text line-through">Barrer la sala</p>
+              <i id="check" class="fa-regular fa-circle-check"></i>
+            </li>
+            <li>
+              <i id="delete" class="fa-solid fa-trash"></i>
+              <p class="text">Limpiar la cocina</p>
+              <i id="check" class="fa-regular fa-circle"></i>
+            </li>
+            <li>
+              <i id="delete" class="fa-solid fa-trash"></i>
+              <p class="text">Ordenar el cuarto</p>
+              <i id="check" class="fa-regular fa-circle"></i>
+            </li>
+            <li>
+              <i id="delete" class="fa-solid fa-trash"></i>
+              <p class="text line-through">Lavar la ropa</p>
+              <i id="check" class="fa-regular fa-circle-check"></i>
+            </li>
+            <li>
+              <i id="delete" class="fa-solid fa-trash"></i>
+              <p class="text line-through">Tender la ropa</p>
+              <i id="check" class="fa-regular fa-circle-check"></i>
+            </li>
+            <li>
+              <i id="delete" class="fa-solid fa-trash"></i>
+              <p class="text line-through">Lavar las cosa de popy</p>
+              <i id="check" class="fa-regular fa-circle-check"></i>
+            </li>
+            <li>
+              <i id="delete" class="fa-solid fa-trash"></i>
+              <p class="text">Lavar el carro</p>
+              <i id="check" class="fa-regular fa-circle"></i>
+            </li>
+            <li>
+              <i id="delete" class="fa-solid fa-trash"></i>
+              <p class="text">Hacer tarea</p>
+              <i id="check" class="fa-regular fa-circle"></i>
+            </li>
+            <li>
+              <i id="delete" class="fa-solid fa-trash"></i>
+              <p class="text">Poner a secar los zapatos</p>
+              <i id="check" class="fa-regular fa-circle"></i>
+            </li>
+            <li>
+              <i id="delete" class="fa-solid fa-trash"></i>
+              <p class="text">Cambiar sabanas</p>
+              <i id="check" class="fa-regular fa-circle"></i>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
