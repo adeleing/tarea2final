@@ -80,16 +80,22 @@ h1 {
   height: 100%;
   border-radius: 8px;
   border: none;
-  background-color: white;
+  background-color: white
 }
 
-.agregar-tareas i {
+
+.agregar-tareas button {
   font-size: 2rem;
   color: #06b6d4;
+  border: none;
+  
+}
+button{
+  border: none;
+ background: none;
 }
 
-.agregar-tareas i:hover {
-  transform: scale(1.1);
+.agregar-tareas button:hover {
   color: green;
   cursor: pointer;
 }
@@ -141,6 +147,11 @@ h1 {
 .line-through {
   text-decoration: line-through;
   color: black;
+}
+
+h3{
+  display: flex;
+  justify-content: center;
 }
 
 @media screen and (max-width: 500px) {

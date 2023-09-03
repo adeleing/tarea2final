@@ -8,7 +8,7 @@
       crossorigin="anonymous"
     ></script>
     <title>Lista de tarea</title>
-    <link rel="stylesheet" href="tarea.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
@@ -47,74 +47,33 @@
         </div>
         <div class="agregar-tareas">
           <input
-            class="icon-agregar"
-            type="text"
-            id="input"
-            placeholder="agregar tareas"
+          class="icon-agregar"
+          type="text"
+          id="tarea"
+          placeholder="agregar tareas"
           />
-          <i class="fa-regular fa-square-plus"></i>
+          <button id="agregar" class="fa-regular fa-square-plus"></button>
+          
         </div>
         <div class="seccion-tareas">
           <h3>Estas son tus tareas pendientes</h3>
           <ul id="list" class="barra">
             <li>
+            <!--<button class="btn-delete">
               <i id="delete" class="fa-solid fa-trash"></i>
-              <p class="text line-through">Barrer el cuarto</p>
+            </button>
+            <p>${texto}</p>
+            <button id="btn-check">
               <i id="check" class="fa-regular fa-circle-check"></i>
-            </li>
-            <li>
-              <i id="delete" class="fa-solid fa-trash"></i>
-              <p class="text line-through">Barrer la sala</p>
-              <i id="check" class="fa-regular fa-circle-check"></i>
-            </li>
-            <li>
-              <i id="delete" class="fa-solid fa-trash"></i>
-              <p class="text">Limpiar la cocina</p>
-              <i id="check" class="fa-regular fa-circle"></i>
-            </li>
-            <li>
-              <i id="delete" class="fa-solid fa-trash"></i>
-              <p class="text">Ordenar el cuarto</p>
-              <i id="check" class="fa-regular fa-circle"></i>
-            </li>
-            <li>
-              <i id="delete" class="fa-solid fa-trash"></i>
-              <p class="text line-through">Lavar la ropa</p>
-              <i id="check" class="fa-regular fa-circle-check"></i>
-            </li>
-            <li>
-              <i id="delete" class="fa-solid fa-trash"></i>
-              <p class="text line-through">Tender la ropa</p>
-              <i id="check" class="fa-regular fa-circle-check"></i>
-            </li>
-            <li>
-              <i id="delete" class="fa-solid fa-trash"></i>
-              <p class="text line-through">Lavar las cosa de popy</p>
-              <i id="check" class="fa-regular fa-circle-check"></i>
-            </li>
-            <li>
-              <i id="delete" class="fa-solid fa-trash"></i>
-              <p class="text">Lavar el carro</p>
-              <i id="check" class="fa-regular fa-circle"></i>
-            </li>
-            <li>
-              <i id="delete" class="fa-solid fa-trash"></i>
-              <p class="text">Hacer tarea</p>
-              <i id="check" class="fa-regular fa-circle"></i>
-            </li>
-            <li>
-              <i id="delete" class="fa-solid fa-trash"></i>
-              <p class="text">Poner a secar los zapatos</p>
-              <i id="check" class="fa-regular fa-circle"></i>
-            </li>
-            <li>
-              <i id="delete" class="fa-solid fa-trash"></i>
-              <p class="text">Cambiar sabanas</p>
-              <i id="check" class="fa-regular fa-circle"></i>
+            </button>-->
             </li>
           </ul>
+          <h3>Realizados: <span id="cantidad-rea">0</span></h3>
+           <h3>Pendientes: <span id="cantidad">0</span></h3>
         </div>
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
-</html>
+  </html>
+  
