@@ -1,34 +1,101 @@
-const inputTarea = document.getElementById('tarea');
-const btn = document.getElementById('agregar');
-const list = document.getElementById('list');
-const cantidad = document.getElementById('cantidad');
-const cantidadRea = document.getElementById('cantidad-rea');
+const formulario = document.querySelector('.formulario');
+const titulo = document.querySelector('#titulo');
+const tareas = document.querySelector('#tareas');
+let task = [];
 
-let total = 0;
-let r = 0;
-let p = 0;
+formulario.addEventListener('submit', validarFormulario);
+tareas.addEventListener('click', eliminarTarea);
+tareas.addEventListener('click', completadaTarea);
 
-btn.onclick = function () {
-    const elemento = inputTarea.value;
-    const li = document.createElement('li');
-    li.textContent = elemento;
-    list.appendChild(li);
+/*FUNCIONES */
+function validarFormulario(e) {
+  e.preventDefault();
+  
+  const tarea = document.querySelector('#tarea').value;
+  if (!tarea.trim()) { 
+    titulo.textContent ="Formulario vacio";
     
-    total++;
-  cantidad.innerHTML = total;
+    setTimeout(() =>{
+      titulo.textContent ='Formulario';
+    }, 2000)
+    return;
+  }
 
-    li.setAttribute('tarea');
+  //CREAMOS EL OBJETO TAREA
+  const objTarea ={
+    id: Date.now(),
+    tarea: tarea,
+    estado: false
+  } 
 
-    li.innerHTML = 
-    `<button class="btn-delete">
-    <i id="delete" class="fa-solid fa-trash"></i>
-  </button>
-  <p>${texto}</p>
-  <button id="btn-check">
-    <i id="check" class="fa-regular fa-circle-check"></i>
-  </button>
-  `
+  task = [...task, objTarea];
+
+  formulario.reset();
+
+  mostrarHTML();
 
 }
+  
+function mostrarHTML() {
 
+  //Limpiar
+  while (tareas.firstChild) {
+    tareas.removeChild(tareas.firstChild);
+  }
 
+  if (task.length > 0) {
+    
+    task.forEach(item  =>{
+  
+      const elementos = document.createElement('ul');
+      elementos.classList.add('item-tarea');
+      elementos.innerHTML = `
+      <li>
+              <button class="eliminar">
+                <i data-id='${item.id}' class="fa-solid fa-trash"></i>
+              </button>
+              <p>${item.tarea}</p>
+              <button class="completado">
+                <i data-id='${item.id}' class="fa-regular fa-circle-check"></i>
+              </button>
+              </li>
+      `;
+  
+      tareas.appendChild(elementos);
+  
+    })
+  }else {
+    const mensaje = document.createElement('h5');
+    mensaje.textContent = '~SIN TAREAS~';
+    tareas.appendChild(mensaje);
+  }
+  
+}
+
+//Eliminar tareas
+function eliminarTarea(e) {
+  if(e.target.classList.contains('fa-solid')){
+  const tareaID = Number(e.target.getAttribute('data-id'));
+  
+  //eliminar
+  const newtask = task.filter((item) => item.id !== tareaID);
+  task = newtask;
+  mostrarHTML();
+}  
+}
+
+function completadaTarea(e) {
+  if(e.target.classList.contains('fa-regular')){
+    const tareaID = Number(e.target.getAttribute('data-id'));
+    const newtask = task.map(item =>{
+     if(item.id === tareaID){
+       item.estado = !item.estado;
+       return item;
+    } else{
+      return item;
+    }
+    })
+    task = newtask;
+    mostrarHTML();
+  }
+}

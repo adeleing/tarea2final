@@ -57,6 +57,13 @@ h1 {
   background: linear-gradient(to bottom, #06b6d4, green);
 }
 
+h4{
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  padding: 1rem;
+}
+
 /* Perfil */
 
 #fecha {
@@ -64,18 +71,19 @@ h1 {
 }
 /* Agregar tarea */
 
-.agregar-tareas {
+.formulario {
   background-color: white;
   border-radius: 1rem;
   height: 3rem;
   display: flex;
+  justify-content: start;
   align-items: center;
   padding: 10px;
   gap: 65px;
-  margin: 2rem 0;
+  margin: 0.5rem 1rem;
 }
 
-.agregar-tareas input {
+.formulario input {
   width: 100%;
   height: 100%;
   border-radius: 8px;
@@ -84,7 +92,7 @@ h1 {
 }
 
 
-.agregar-tareas button {
+.formulario button {
   font-size: 2rem;
   color: #06b6d4;
   border: none;
@@ -95,12 +103,12 @@ button{
  background: none;
 }
 
-.agregar-tareas button:hover {
+.formulario button:hover {
   color: green;
   cursor: pointer;
 }
 
-.agregar-tareas input::placeholder {
+.formulario input::placeholder {
   font-size: 1.1rem;
 }
 
@@ -110,8 +118,8 @@ button{
   margin-bottom: 1rem;
 }
 
-.barra {
-  height: 230px;
+.item-tarea {
+  height: 8rem;
   overflow-y: auto;
   width: 100%;
 }
@@ -130,12 +138,12 @@ button{
   font-size: 25px;
 }
 
-#delete:hover {
+.eliminar:hover {
   color: red;
   cursor: pointer;
 }
 
-#check:hover {
+.completado:hover {
   color: rgb(3, 255, 3);
   cursor: pointer;
 }
@@ -148,6 +156,12 @@ button{
   text-decoration: line-through;
   color: black;
 }
+h5{
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
 
 h3{
   display: flex;
