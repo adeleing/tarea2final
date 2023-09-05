@@ -118,44 +118,56 @@ button{
   margin-bottom: 1rem;
 }
 
-.item-tarea {
-  height: 8rem;
+.seccion-tareas .item-tarea{
   overflow-y: auto;
-  width: 100%;
 }
 
-.seccion-tareas li {
+.seccion-tareas .item-tarea li {
   display: flex;
-  background: linear-gradient(to bottom, #155e75, #06b6d4);
-  border-radius: 1rem;
-  padding: 10px;
   align-items: center;
   justify-content: space-between;
+  border-radius: 1rem; 
+  padding: 10px;
   margin: 10px 0;
+  width: 99%;
+  background: linear-gradient(to bottom, #155e75, #06b6d4);
 }
 
 .seccion-tareas i {
   font-size: 25px;
 }
 
+.eliminar {
+  border: none;
+  color: black;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform ease 300ms;
+  padding: 8px;
+}
+
 .eliminar:hover {
   color: red;
+  transform: scale(1.3);
+}
+
+.completado {
+  border: none;
+  color: black;
   cursor: pointer;
+  transition: transform ease 300ms;
+  padding: 8px;
 }
 
 .completado:hover {
   color: rgb(3, 255, 3);
-  cursor: pointer;
+  transform: scale(1.3);
 }
 
 .seccion-tareas > ul p {
   font-size: 1.2rem;
 }
 
-.line-through {
-  text-decoration: line-through;
-  color: black;
-}
 h5{
   display: flex;
   justify-content: center;

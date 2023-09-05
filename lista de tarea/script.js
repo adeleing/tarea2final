@@ -5,7 +5,7 @@ let task = [];
 
 formulario.addEventListener('submit', validarFormulario);
 tareas.addEventListener('click', eliminarTarea);
-tareas.addEventListener('click', completadaTarea);
+tareas.addEventListener('click', completadoTarea);
 
 /*FUNCIONES */
 function validarFormulario(e) {
@@ -47,10 +47,10 @@ function mostrarHTML() {
     
     task.forEach(item  =>{
   
-      const elementos = document.createElement('ul');
+      const elementos = document.createElement('li');
       elementos.classList.add('item-tarea');
       elementos.innerHTML = `
-      <li>
+      
               <button class="eliminar">
                 <i data-id='${item.id}' class="fa-solid fa-trash"></i>
               </button>
@@ -58,8 +58,8 @@ function mostrarHTML() {
               <button class="completado">
                 <i data-id='${item.id}' class="fa-regular fa-circle-check"></i>
               </button>
-              </li>
-      `;
+      
+              `;
   
       tareas.appendChild(elementos);
   
@@ -84,13 +84,14 @@ function eliminarTarea(e) {
 }  
 }
 
-function completadaTarea(e) {
+function completadoTarea(e) {
   if(e.target.classList.contains('fa-regular')){
     const tareaID = Number(e.target.getAttribute('data-id'));
     const newtask = task.map(item =>{
-     if(item.id === tareaID){
-       item.estado = !item.estado;
-       return item;
+      if(item.id === tareaID){
+        item.estado = !item.estado;
+        return item;
+        
     } else{
       return item;
     }
