@@ -151,6 +151,11 @@ button{
   transform: scale(1.3);
 }
 
+.line-through{
+  text-decoration: line-through;
+  color: black;
+}
+
 .completado {
   border: none;
   color: black;
@@ -174,11 +179,14 @@ h5{
   font-size: 1.5rem;
 }
 
-
-h3{
+.contador{
   display: flex;
   justify-content: center;
+  flex-direction:  row;
+  padding: 2px;
+  font-size: 1rem;
 }
+
 
 @media screen and (max-width: 500px) {
   .open-menu {
