@@ -213,4 +213,10 @@ h5{
     padding: 0 1rem;
     margin: 1rem 1rem 1rem 1rem;
   }
+
+  .datos{
+    display: flex;
+    font-size: 0.65rem; 
+    color: black; 
+  }
 }
