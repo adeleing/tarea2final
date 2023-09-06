@@ -1,13 +1,20 @@
 const formulario = document.querySelector('.formulario');
 const titulo = document.querySelector('#titulo');
 const tareas = document.querySelector('#tareas');
-const fecha = document.querySelector('#fecha')
-const lineThrough = 'line-through'
+const fecha = document.querySelector('#fecha');
+const total = document.querySelector('#total');
+const completadas = document.querySelector('#completadas');
+const pendientes = document.querySelector('#pendientes')
 let task = [];
 
 formulario.addEventListener('submit', validarFormulario);
 tareas.addEventListener('click', eliminarTarea);
-tareas.addEventListener('click', completadoTarea);
+tareas.addEventListener('click', completarTarea);
+document.addEventListener('DOMContentLoaded', () => {
+  let datosLS = JSON.parse(localStorage.getItem('tareas')) || [];
+  task = datosLS;
+  mostrarHTML();
+})
 
 //Fecha
 const FECHA = new Date ()
@@ -60,12 +67,19 @@ function mostrarHTML() {
               <button class="eliminar">
                 <i data-id='${item.id}' class="fa-solid fa-trash"></i>
               </button>
-              <p class="text line-Through">${item.tarea}</p>
+
+              <p>${item.estado ? (
+                `<span class='completa'>${item.tarea}</span>`
+                ) : (
+                    `<span>${item.tarea}</span>`
+                
+              )}</p>
+                
               <button class="completado">
                 <i data-id='${item.id}' class="fa-regular fa-circle-check"></i>
               </button>
       
-              `;
+              `
   
       tareas.appendChild(elementos);
   
@@ -75,6 +89,17 @@ function mostrarHTML() {
     mensaje.textContent = '~SIN TAREAS~';
     tareas.appendChild(mensaje);
   }
+
+    //mostrar el total y completadas
+    let totalTareas = task.length;
+    let tareasPendientes = task.filter(item => item.estado === false).length
+    let tareasCompletas = task.filter(item => item.estado ===true).length;
+
+    total.textContent = `Total: ${totalTareas}`;
+    pendientes.textContent = `pendientes: ${tareasPendientes}`;
+    completadas.textContent = `Completadas: ${tareasCompletas}`;
+
+    localStorage.setItem('tareas', JSON.stringify(task))
   
 }
 
@@ -90,20 +115,22 @@ function eliminarTarea(e) {
 }  
 }
 
-function completadoTarea(e) {
+
+function completarTarea(e) {
+  const oficio = document.querySelector('#oficio');
   if(e.target.classList.contains('fa-regular')){
     const tareaID = Number(e.target.getAttribute('data-id'));
-    tareas.parentNode.querySelector('.text').classList.toggle(lineThrough);
-    const newtask = task.map(item =>{
-      if(item.id === tareaID){
-        item.estado = !item.estado;
-        return item;
-        
-    } else{
-      return item;
-    }
-    })
-    task = newtask;
-    mostrarHTML();
-  }
+    const newtareas = task.map(item =>{
+      if (item.id === tareaID){
+          item.estado = !item.estado;
+          return item;
+      }else{
+          return item;
+      }
+  })
+  task = newtareas;
+       mostrarHTML();
+  
+}
+  
 }
